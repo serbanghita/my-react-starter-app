@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.App {
+  text-align: center;
+  padding: 1em;
+  margin: 1em;
+  border: 0.1em dashed grey;
+}
+
+.App a {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+.App a:hover {
+  color: darkblue;
+}
