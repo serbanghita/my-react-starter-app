@@ -1,5 +1,7 @@
+import React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
-import ProductPage from "./ProductPage";
+
+import ProductPage from "ProductPage";
 
 // jest.mock("./ProductStore", () => {
 //     return {
@@ -8,27 +10,32 @@ import ProductPage from "./ProductPage";
 //     };
 // });
 
-jest.mock("./ProductStore");
+// jest.mock("./ProductStore");
 
-test("ProductPage", async () => {
-    const props = {
-        match: {
-            params: {
-                code: "some code"
+describe("ProductPage", () => {
+    it("markup", async () => {
+        const props = {
+            match: {
+                params: {
+                    code: "live_code"
+                }
+            },
+            location: {
+                state: {
+                    isLoading: false
+                }
             }
-        },
-        location: {
-            state: {
-                isLoading: false
-            }
-        }
-    };
+        };
 
-    render(<ProductPage {...props} />);
+        render(<ProductPage {...props} />);
 
-    await waitFor(() => expect(screen.getByTestId("product")).toBeInTheDocument())
+        await waitFor(() => expect(screen.getByTestId("product")).toBeInTheDocument());
 
-    const productCode = screen.getByTestId("product-code");
-    expect(productCode).toBeInTheDocument();
-    expect(productCode).toHaveTextContent("test_code");
+        screen.debug(document.body);
+
+        const productCode = screen.getByTestId("product-code");
+        expect(productCode).toBeInTheDocument();
+        expect(productCode).toHaveTextContent("test_code_from_mock");
+    });
 });
+

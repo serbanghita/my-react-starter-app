@@ -1,7 +1,8 @@
-import ProductStore from "./ProductStore";
 import React from "react";
+// import ProductStore from "./ProductStore";
+import ProductStore from "ProductStore";
 
-export default class ProductPage  extends React.Component {
+export default class ProductPage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -14,14 +15,14 @@ export default class ProductPage  extends React.Component {
     }
 
     componentDidMount() {
-        // const ProductStore
-        const ps = new ProductStore();
-        ps
+        // const ps = new ProductStore();
+        // ps
+        ProductStore
             .load(this.state.code)
             .then(() => {
-                console.log("Nope");
                 this.setState({
-                    data: ps.data, // ProductStore.data,
+                    // data: ps.data,
+                    data: ProductStore.data,
                     isLoading: false
                 });
         });

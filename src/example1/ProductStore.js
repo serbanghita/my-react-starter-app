@@ -1,5 +1,9 @@
-export default class ProductStore {
+class ProductStore {
     data = {};
+
+    constructor() {
+        this.data = {};
+    }
 
     load(code) {
         return Promise.resolve({
@@ -10,6 +14,10 @@ export default class ProductStore {
             this.data = result;
         });
     }
+
+    getData() {
+        return this.data;
+    }
 }
 
-// export default new ProductStore();
+export default new ProductStore();

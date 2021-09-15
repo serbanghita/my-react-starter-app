@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
-import ProductPage from "./ProductPage";
-import HomePage from "./HomePage";
+import ProductPage from "ProductPage";
+import HomePage from "HomePage";
 
 const routes = [
     {

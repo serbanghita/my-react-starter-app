@@ -1,1 +1,0 @@
-require("./example1/index")
